@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic IA - Currículos Inteligentes</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #003380;
+            --light-blue: #E6F0FF;
+            --accent-red: #FF3B30;
+            --dark-red: #CC2E24;
+            --neutral-dark: #1A1A1A;
+            --neutral-gray: #6B7280;
+            --neutral-light: #F9FAFB;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--neutral-dark);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Navbar Profissional */
+        .navbar-professional {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .navbar-professional.scrolled {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-brand .ai-badge {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-red));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            align-items: center;
+        }
+
+        .nav-link-custom {
+            color: var(--neutral-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-link-custom:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-link-custom::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s;
+        }
+
+        .nav-link-custom:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.65rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+        }
+
+        .btn-secondary-custom {
+            background: white;
+            color: var(--accent-red);
+            padding: 0.65rem 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--accent-red);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary-custom:hover {
+            background: var(--accent-red);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section Moderna */
+        .hero-modern {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-modern::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0,102,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--neutral-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .highlight {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--neutral-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .ai-features {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .ai-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .ai-feature-item i {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .ai-feature-item span {
+            font-weight: 600;
+            color: var(--neutral-dark);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--neutral-dark);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: var(--white);
+            padding: 40px 0;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: 2px solid #E5E7EB;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: var(--neutral-gray);
+        }
+
+        .filter-tab:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .filter-tab.active {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--neutral-gray);
+        }
+
+        /* CV Card Moderna */
+        .cv-grid {
+            padding: 60px 0;
+        }
+
+        .cv-card-modern {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            margin-bottom: 2rem;
+            border: 1px solid #E5E7EB;
+        }
+
+        .cv-card-modern:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+
+        .cv-preview-modern {
+            position: relative;
+            height: 350px;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid var(--primary-blue);
+        }
+
+        .cv-preview-icon {
+            font-size: 5rem;
+            color: var(--primary-blue);
+        }
+
+        .cv-category-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-red);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .ai-powered-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cv-card-content {
+            padding: 1.5rem;
+        }
+
+        .cv-card-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neutral-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .cv-card-content p {
+            color: var(--neutral-gray);
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .cv-features-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--neutral-dark);
+        }
+
+        .cv-feature i {
+            color: var(--primary-blue);
+            font-size: 1rem;
+        }
+
+        .cv-card-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-download-modern {
+            flex: 1;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.85rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-download-modern:hover {
+            background: var(--dark-blue);
+        }
+
+        .btn-preview {
+            padding: 0.85rem 1.5rem;
+            background: white;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-preview:hover {
+            background: var(--light-blue);
+        }
+
+        /* AI Features Section */
+        .ai-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .ai-feature-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .ai-feature-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .ai-feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .ai-feature-card h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .ai-feature-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Comparison Tool */
+        .comparison-section {
+            padding: 80px 0;
+            background: var(--neutral-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--neutral-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title .subtitle {
+            font-size: 1.15rem;
+            color: var(--neutral-gray);
+        }
+
+        .comparison-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .comparison-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .comparison-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--neutral-dark);
+        }
+
+        .comparison-card p {
+            color: var(--neutral-gray);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer-modern {
+            background: var(--neutral-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h5 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--accent-red);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links-modern {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .filter-container {
+                flex-direction: column;
+            }
+
+            .search-box {
+                max-width: 100%;
+            }
+
+            .cv-features-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar-professional">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#" class="nav-brand">
+                    <i class="bi bi-cpu"></i>
+                    Agentic IA
+                    <span class="ai-badge">AI Powered</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#modelos" class="nav-link-custom">Modelos</a></li>
+                    <li><a href="#ia-features" class="nav-link-custom">IA Features</a></li>
+                    <li><a href="#comparacao" class="nav-link-custom">Comparação</a></li>
+                    <li><a href="#" class="btn-primary-custom">Começar Agora</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-modern">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1>Currículos <span class="highlight">Inteligentes</span> para o Futuro</h1>
+                    <p>Criação automatizada de currículos profissionais com tecnologia de Inteligência Artificial. Otimização ATS, designs modernos e resultados comprovados.</p>
+                    <div class="d-flex gap-3">
+                        <button class="btn-primary-custom" onclick="document.getElementById('modelos').scrollIntoView({behavior: 'smooth'})">
+                            <i class="bi bi-rocket-takeoff me-2"></i>
+                            Explorar Modelos
+                        </button>
+                        <button class="btn-secondary-custom">
+                            <i class="bi bi-play-circle me-2"></i>
+                            Ver Demo
+                        </button>
+                    </div>
+                    <div class="ai-features">
+                        <div class="ai-feature-item">
+                            <i class="bi bi-robot"></i>
+                            <span>IA Generativa</span>
+                        </div>
+                        <div class="ai-feature-item">
+                            <i class="bi bi-shield-check"></i>
+                            <span>ATS Otimizado</span>
+                        </div>
+                        <div class="ai-feature-item">
+                            <i class="bi bi-lightning-charge"></i>
+                            <span>Edição Rápida</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <i class="bi bi-file-earmark-text" style="font-size: 20rem; color: var(--primary-blue); opacity: 0.1;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">75+</div>
+                        <div class="stat-label">Modelos IA</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Currículos Criados</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Taxa de Aprovação ATS</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label">Suporte Contínuo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section" id="modelos">
+        <div class="container">
+            <div class="filter-container">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="filterModels('todos')">Todos</button>
+                    <button class="filter-tab" onclick="filterModels('executivo')">Executivo</button>
+                    <button class="filter-tab" onclick="filterModels('tech')">Tech</button>
+                    <button class="filter-tab" onclick="filterModels('criativo')">Criativo</button>
+                    <button class="filter-tab" onclick="filterModels('corporativo')">Corporativo</button>
+                </div>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Buscar modelos..." id="searchInput">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Grid -->
+    <section class="cv-grid">
+        <div class="container">
+            <div class="row" id="cvGrid">
+                <!-- CV 1 -->
+                <div class="col-lg-4 col-md-6 cv-item" data-category="executivo">
+                    <div class="cv-card-modern">
+                        <div class="cv-preview-modern" style="background: linear-gradient(135deg, #0066FF 0%, #003380 100%);">
+                            <i class="bi bi-briefcase cv-preview-icon" style="color: white;"></i>
+                            <span class="ai-powered-badge">
+                                <i class="bi bi-cpu"></i>
+                                IA Enhanced
+                            </span>
+                            <span class="cv-category-badge">Executivo</span>
+                        </div>
+                        <div class="cv-card-content">
+                            <h3>Executive Pro AI</h3>
+                            <p>Design executivo com otimização IA para cargos C-Level e gestão estratégica.</p>
+                            <div class="cv-features-list">
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Design Único</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Cores Custom</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Portfolio Integrado</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Visual Impact</span>
+                                </div>
+                            </div>
+                            <div class="cv-card-actions">
+                                <button class="btn-download-modern">
+                                    <i class="bi bi-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn-preview">Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CV 4 -->
+                <div class="col-lg-4 col-md-6 cv-item" data-category="corporativo">
+                    <div class="cv-card-modern">
+                        <div class="cv-preview-modern" style="background: linear-gradient(135deg, #1A1A1A 0%, #0066FF 100%);">
+                            <i class="bi bi-building cv-preview-icon" style="color: white;"></i>
+                            <span class="ai-powered-badge">
+                                <i class="bi bi-cpu"></i>
+                                IA Enhanced
+                            </span>
+                            <span class="cv-category-badge">Corporativo</span>
+                        </div>
+                        <div class="cv-card-content">
+                            <h3>Corporate Elite AI</h3>
+                            <p>Modelo profissional e clean para ambientes corporativos tradicionais.</p>
+                            <div class="cv-features-list">
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Layout Clean</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Foco Resultados</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Certificações</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>ATS Friendly</span>
+                                </div>
+                            </div>
+                            <div class="cv-card-actions">
+                                <button class="btn-download-modern">
+                                    <i class="bi bi-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn-preview">Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CV 5 -->
+                <div class="col-lg-4 col-md-6 cv-item" data-category="tech">
+                    <div class="cv-card-modern">
+                        <div class="cv-preview-modern" style="background: linear-gradient(135deg, #FF3B30 0%, #0066FF 100%);">
+                            <i class="bi bi-database cv-preview-icon" style="color: white;"></i>
+                            <span class="ai-powered-badge">
+                                <i class="bi bi-cpu"></i>
+                                IA Enhanced
+                            </span>
+                            <span class="cv-category-badge">Data Science</span>
+                        </div>
+                        <div class="cv-card-content">
+                            <h3>Data Scientist AI</h3>
+                            <p>Template otimizado para cientistas de dados e analistas com foco em métricas.</p>
+                            <div class="cv-features-list">
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Visualizações</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Projetos ML</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Kaggle Link</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Skills Rating</span>
+                                </div>
+                            </div>
+                            <div class="cv-card-actions">
+                                <button class="btn-download-modern">
+                                    <i class="bi bi-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn-preview">Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CV 6 -->
+                <div class="col-lg-4 col-md-6 cv-item" data-category="executivo">
+                    <div class="cv-card-modern">
+                        <div class="cv-preview-modern" style="background: linear-gradient(135deg, #0066FF 0%, #FF3B30 100%);">
+                            <i class="bi bi-trophy cv-preview-icon" style="color: white;"></i>
+                            <span class="ai-powered-badge">
+                                <i class="bi bi-cpu"></i>
+                                IA Enhanced
+                            </span>
+                            <span class="cv-category-badge">Premium</span>
+                        </div>
+                        <div class="cv-card-content">
+                            <h3>Leadership Pro AI</h3>
+                            <p>Template premium para líderes e gestores de alto nível.</p>
+                            <div class="cv-features-list">
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Executive Summary</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>KPIs & Metrics</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Board Experience</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Strategic Vision</span>
+                                </div>
+                            </div>
+                            <div class="cv-card-actions">
+                                <button class="btn-download-modern">
+                                    <i class="bi bi-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn-preview">Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Features Section -->
+    <section class="ai-section" id="ia-features">
+        <div class="container">
+            <div class="section-title text-white">
+                <h2>Tecnologia de IA Avançada</h2>
+                <p class="subtitle text-white">Recursos inteligentes que transformam seu currículo</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="ai-feature-card">
+                        <div class="ai-feature-icon">
+                            <i class="bi bi-robot"></i>
+                        </div>
+                        <h4>Geração Automática</h4>
+                        <p>IA cria conteúdo otimizado baseado em seu perfil e experiência profissional.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="ai-feature-card">
+                        <div class="ai-feature-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h4>Análise ATS</h4>
+                        <p>Score em tempo real de compatibilidade com sistemas de recrutamento.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="ai-feature-card">
+                        <div class="ai-feature-icon">
+                            <i class="bi bi-magic"></i>
+                        </div>
+                        <h4>Otimização de Palavras</h4>
+                        <p>Sugestões inteligentes de keywords para aumentar suas chances.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="ai-feature-card">
+                        <div class="ai-feature-icon">
+                            <i class="bi bi-lightning-charge"></i>
+                        </div>
+                        <h4>Edição Instantânea</h4>
+                        <p>Ajustes em tempo real com preview imediato do resultado final.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section" id="comparacao">
+        <div class="container">
+            <div class="section-title">
+                <h2>Por Que Escolher Agentic IA?</h2>
+                <p class="subtitle">Diferenciais que fazem a diferença na sua busca por emprego</p>
+            </div>
+
+            <div class="comparison-cards">
+                <div class="comparison-card">
+                    <div class="comparison-icon" style="color: var(--primary-blue);">
+                        <i class="bi bi-speedometer2"></i>
+                    </div>
+                    <h4>Velocidade Incomparável</h4>
+                    <p>Crie currículos profissionais em menos de 5 minutos com nossos templates otimizados por IA.</p>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-icon" style="color: var(--accent-red);">
+                        <i class="bi bi-award"></i>
+                    </div>
+                    <h4>Qualidade Premium</h4>
+                    <p>Designs criados por profissionais e validados por especialistas em recrutamento.</p>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-icon" style="color: var(--primary-blue);">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h4>ATS Garantido</h4>
+                    <p>98% de taxa de aprovação em sistemas automatizados de triagem de currículos.</p>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-icon" style="color: var(--accent-red);">
+                        <i class="bi bi-cloud-download"></i>
+                    </div>
+                    <h4>Múltiplos Formatos</h4>
+                    <p>Exporte em PDF, Word, ou compartilhe online com um link personalizado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h5>Agentic IA</h5>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">
+                        Plataforma de criação de currículos profissionais com tecnologia de Inteligência Artificial.
+                    </p>
+                    <div class="social-links-modern">
+                        <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h5>Modelos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Executivo</a></li>
+                        <li><a href="#">Tecnologia</a></li>
+                        <li><a href="#">Criativo</a></li>
+                        <li><a href="#">Corporativo</a></li>
+                        <li><a href="#">Todos os Modelos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h5>Recursos</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">IA Features</a></li>
+                        <li><a href="#">Guia de Uso</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Dicas de Carreira</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h5>Suporte</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Agentic IA. Todos os direitos reservados. | Powered by Artificial Intelligence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/11/12/20/20251112204709-BPSNRGSE.js" defer></script>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-professional');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Filter functionality
+        function filterModels(category) {
+            const tabs = document.querySelectorAll('.filter-tab');
+            const items = document.querySelectorAll('.cv-item');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            items.forEach(item => {
+                if (category === 'todos' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const items = document.querySelectorAll('.cv-item');
+            
+            items.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase();
+                const description = item.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // Download button functionality
+        document.querySelectorAll('.btn-download-modern').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.cv-card-modern');
+                const modelName = card.querySelector('h3').textContent;
+                
+                // Animação de sucesso
+                this.innerHTML = '<i class="bi bi-check-circle"></i> Baixado!';
+                this.style.background = '#10B981';
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="bi bi-download"></i> Download';
+                    this.style.background = 'var(--primary-blue)';
+                }, 2000);
+                
+                console.log('Downloading:', modelName);
+            });
+        });
+
+        // Preview button functionality
+        document.querySelectorAll('.btn-preview').forEach(button => {
+            button.addEventListener('click', function() {
+                const card = this.closest('.cv-card-modern');
+                const modelName = card.querySelector('h3').textContent;
+                alert('Preview de: ' + modelName + '\n\nEm breve: visualização em tela cheia!');
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.cv-item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'all 0.6s ease-out';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html><i class="bi bi-check-circle-fill"></i>
+                                    <span>Análise IA</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>ATS Score 98%</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>2 Páginas</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>PDF & Word</span>
+                                </div>
+                            </div>
+                            <div class="cv-card-actions">
+                                <button class="btn-download-modern">
+                                    <i class="bi bi-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn-preview">Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CV 2 -->
+                <div class="col-lg-4 col-md-6 cv-item" data-category="tech">
+                    <div class="cv-card-modern">
+                        <div class="cv-preview-modern" style="background: linear-gradient(135deg, #FF3B30 0%, #CC2E24 100%);">
+                            <i class="bi bi-code-slash cv-preview-icon" style="color: white;"></i>
+                            <span class="ai-powered-badge">
+                                <i class="bi bi-cpu"></i>
+                                IA Enhanced
+                            </span>
+                            <span class="cv-category-badge">Tech</span>
+                        </div>
+                        <div class="cv-card-content">
+                            <h3>Developer AI Stack</h3>
+                            <p>Template especializado para desenvolvedores com showcase de projetos e skills técnicas.</p>
+                            <div class="cv-features-list">
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Portfolio Link</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Tech Stack</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>GitHub Sync</span>
+                                </div>
+                                <div class="cv-feature">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                    <span>Code Samples</span>
+                                </div>
+                            </div>
+                            <div class="cv-card-actions">
+                                <button class="btn-download-modern">
+                                    <i class="bi bi-download"></i>
+                                    Download
+                                </button>
+                                <button class="btn-preview">Preview</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CV 3 -->
+                <div class="col-lg-4 col-md-6 cv-item" data-category="criativo">
+                    <div class="cv-card-modern">
+                        <div class="cv-preview-modern" style="background: linear-gradient(135deg, #0066FF 20%, #FF3B30 100%);">
+                            <i class="bi bi-palette cv-preview-icon" style="color: white;"></i>
+                            <span class="ai-powered-badge">
+                                <i class="bi bi-cpu"></i>
+                                IA Enhanced
+                            </span>
+                            <span class="cv-category-badge">Criativo</span>
+                        </div>
+                        <div class="cv-card-content">
+                            <h3>Creative Vision AI</h3>
+                            <p>Design inovador para profissionais criativos com forte apelo visual.</p>
+                            <div class="cv-features-list">
+                                <div class="cv-feature">
+                                                    
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/11/12/20/20251112204709-BPSNRGSE.js" defer></script>
+        
